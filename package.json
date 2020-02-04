@@ -1,5 +1,5 @@
 {
-  "name": "async-utils",
+  "name": "asyncutils",
   "version": "1.0.0",
   "author": "Ah Zhe",
   "description": "Convert async function to sync function.",
@@ -12,10 +12,10 @@
   "files": [
     "dist/**/*"
   ],
-  "homepage": "https://github.com/ahzhezhe/async-utils#readme",
+  "homepage": "https://github.com/ahzhezhe/asyncutils#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahzhezhe/async-utils"
+    "url": "https://github.com/ahzhezhe/asyncutils"
   },
   "license": "ISC",
   "main": "dist/index.js",
