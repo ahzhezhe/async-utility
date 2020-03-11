@@ -5,14 +5,22 @@ export default class AsyncUtil {
   /**
    * Convert an aysnc function to sync function.
    */
-  static toSync<T>(asyncFn: (...args: any[]) => Promise<T>): (args: any[]) => T {
-    const callbackFn = (args: any[], callback: (err: any, result: T) => void): void => {
+  static toSync<T>(asyncFn: (...args: any[]) => Promise<T>): (args?: any) => T {
+    const callbackFn = (args: any, callback: (err: any, result: T) => void): void => {
+      if (callback == null) {
+        callback = args;
+        args = [];
+      } else if (!Array.isArray(args)) {
+        args = [args];
+      }
+
       asyncFn(...args).then(result => {
         callback(null, result);
       }).catch(err => {
         callback(err, null);
       });
     };
+
     return deasync(callbackFn);
   }
 
