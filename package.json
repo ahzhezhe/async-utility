@@ -1,6 +1,6 @@
 {
   "name": "async-utility",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Chang Zhe Jiet",
   "description": "Convert async function to sync function.",
   "keywords": [
