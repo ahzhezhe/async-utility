@@ -1,9 +1,9 @@
 # **async-utility** 
 
-[![npm package](https://img.shields.io/npm/v/async-utility/latest.svg)](https://www.npmjs.com/package/async-utility)
-[![npm downloads](https://img.shields.io/npm/dt/async-utility.svg)](https://www.npmjs.com/package/async-utility)
+[![npm package](https://img.shields.io/npm/v/async-utility)](https://www.npmjs.com/package/async-utility)
+[![npm downloads](https://img.shields.io/npm/dt/async-utility)](https://www.npmjs.com/package/async-utility)
 [![npm dependencies](https://img.shields.io/librariesio/release/npm/async-utility)](https://www.npmjs.com/package/async-utility)
-![GitHub test](https://github.com/ahzhezhe/async-utility/workflows/test/badge.svg?branch=master)
+[![GitHub test](https://github.com/ahzhezhe/async-utility/workflows/test/badge.svg?branch=master)](https://github.com/ahzhezhe/async-utility)
 [![GitHub issues](https://img.shields.io/github/issues/ahzhezhe/async-utility.svg)](https://github.com/ahzhezhe/async-utility)
 
 Utility to convert async function to sync function, execute async function synchronously & resolve promise synchronously.
