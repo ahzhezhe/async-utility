@@ -26,7 +26,8 @@
     "test": "jest",
     "build": "tsc",
     "prepublishOnly": "del-cli --force dist && tsc",
-    "postpublish": "del-cli --force dist"
+    "postpublish": "del-cli --force dist",
+    "postversion": "git push"
   },
   "dependencies": {
     "deasync": "^0.1.21"
