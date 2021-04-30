@@ -38,4 +38,17 @@ export default class AsyncUtil {
     return this.executeSync(() => promise);
   }
 
+  /**
+   * Construct a promise.
+   */
+  static constructPromise<T>(asyncFn: (...args: any[]) => Promise<T>, ...args: any[]): Promise<T> {
+    return new Promise<T>(async (resolve, reject) => {
+      try {
+        resolve(await asyncFn(...args));
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
 }
