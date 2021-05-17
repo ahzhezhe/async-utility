@@ -1,6 +1,6 @@
 import deasync from 'deasync';
 
-export default class AsyncUtil {
+export class AsyncUtil {
 
   /**
    * Convert an aysnc function to sync function.
@@ -52,3 +52,5 @@ export default class AsyncUtil {
   }
 
 }
+
+export default AsyncUtil;
