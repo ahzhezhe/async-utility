@@ -115,6 +115,7 @@
         "ignoreComments": true
       }
     ],
+    "import/no-default-export": "error",
     "no-throw-literal": "error",
     "prefer-const": "error",
     "no-multi-spaces": "error",
