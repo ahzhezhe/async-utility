@@ -6,7 +6,7 @@ class AsyncUtil {
    * Convert an aysnc function to sync function.
    */
   static toSync<T>(asyncFn: (...args: any[]) => Promise<T>): (args?: any) => T {
-    const callbackFn = (args: any, callback: (err: any, result: T) => void): void => {
+    const callbackFn = (args: any, callback: (err?: any, result?: T) => void): void => {
       if (callback == null) {
         callback = args;
         args = [];
@@ -15,9 +15,9 @@ class AsyncUtil {
       }
 
       asyncFn(...args).then(result => {
-        callback(null, result);
+        callback(undefined, result);
       }).catch(err => {
-        callback(err, null);
+        callback(err, undefined);
       });
     };
 

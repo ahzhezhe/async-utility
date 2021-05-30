@@ -5,13 +5,13 @@
     "outDir": "dist",
     "declaration": true,
     "esModuleInterop": true,
-    "alwaysStrict": true,
+    "strict": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src/**/*.ts"
+    "src"
   ]
 }
