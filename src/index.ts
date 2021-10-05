@@ -21,7 +21,7 @@ class AsyncUtil {
       });
     };
 
-    return deasync(callbackFn);
+    return deasync(callbackFn) as any;
   }
 
   /**
