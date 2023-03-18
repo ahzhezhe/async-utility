@@ -26,8 +26,8 @@
     "jest": "jest",
     "test": "ts-node test.ts",
     "build": "tsc",
-    "prepublishOnly": "rm -rf --force dist && tsc",
-    "postpublish": "rm -rf --force dist",
+    "prepublishOnly": "rm -rf dist && tsc",
+    "postpublish": "rm -rf dist",
     "postversion": "git push"
   },
   "dependencies": {
