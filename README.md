@@ -19,7 +19,7 @@ npm install async-utility
 ```typescript
 import AsyncUtil from 'async-utility';
 
-let result = null;
+let result: number;
 const asyncFn = (a: number, b: number): Promise<number> =>
   new Promise(resolve => resolve(a + b));
 
