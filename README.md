@@ -17,34 +17,19 @@ npm install async-utility
 ## **Usage**
 
 ```typescript
-import AsyncUtil from 'async-utility';
+import { toSync, executeSync, resolveSync } from 'async-utility';
 
 let result: number;
-const asyncFn = (a: number, b: number): Promise<number> =>
-  new Promise(resolve => resolve(a + b));
+const asyncFn = (a: number, b: number): Promise<number> => new Promise(resolve => resolve(a + b));
 
 // Convert async function to sync function
-const syncFn = AsyncUtil.toSync(asyncFn);
-result = syncFn([1, 2]);  // arguments must be put in an array
+const syncFn = toSync(asyncFn);
+result = syncFn(1, 2);
 
 // Execute async function synchronously
-result = AsyncUtil.executeSync(() => asyncFn(1, 2));
+result = executeSync(() => asyncFn(1, 2));
 
 // Resolve promise synchronously
 const promise = asyncFn(1, 2);
-result = AsyncUtil.resolvePromise(promise);
-```
-
-For function with only one or no argument:
-```typescript
-const asyncOneArgFn = (a: number): Promise<void> =>
-  new Promise(resolve => resolve());
-const asyncNoArgFn = (): Promise<void> =>
-  new Promise(resolve => resolve());
-
-const syncOneArgFn = AsyncUtil.toSync(asyncOneArgFn);
-syncOneArgFn(1);  // it's ok to not putting argument in an array
-
-const syncNoArgFn = AsyncUtil.toSync(asyncNoArgFn);
-syncNoArgFn();    // argument is not required at all
+result = resolveSync(promise);
 ```

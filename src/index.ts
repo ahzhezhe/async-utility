@@ -1,56 +1,31 @@
 import deasync from 'deasync';
 
-class AsyncUtil {
+export type AsyncFn<T, A extends any[]> = (...args: A) => Promise<T>;
 
-  /**
-   * Convert an aysnc function to sync function.
-   */
-  static toSync<T>(asyncFn: (...args: any[]) => Promise<T>): (args?: any) => T {
-    const callbackFn = (args: any, callback: (err?: any, result?: T) => void): void => {
-      if (callback == null) {
-        callback = args;
-        args = [];
-      } else if (!Array.isArray(args)) {
-        args = [args];
-      }
+/**
+ * Convert an aysnc function to sync function.
+ */
+export const toSync = <T, A extends any[]>(asyncFn: AsyncFn<T, A>): (...args: A) => T => {
+  const callbackFn = (...params: any[]): void => {
+    const args = params.slice(0, params.length - 1) as any;
+    const callback = params[params.length - 1];
 
-      asyncFn(...args).then(result => {
-        callback(undefined, result);
-      }).catch(err => {
-        callback(err, undefined);
-      });
-    };
-
-    return deasync(callbackFn) as any;
-  }
-
-  /**
-   * Execute an aysnc function synchronously without the need of await.
-   */
-  static executeSync<T>(asyncFn: (...args: any[]) => Promise<T>, ...args: any[]): T {
-    return this.toSync(asyncFn)(args);
-  }
-
-  /**
-   * Resolve a promise and return its result.
-   */
-  static resolvePromise<T>(promise: Promise<T>): T {
-    return this.executeSync(() => promise);
-  }
-
-  /**
-   * Construct a promise.
-   */
-  static constructPromise<T>(asyncFn: (...args: any[]) => Promise<T>, ...args: any[]): Promise<T> {
-    return new Promise<T>(async (resolve, reject) => {
-      try {
-        resolve(await asyncFn(...args));
-      } catch (err) {
-        reject(err);
-      }
+    asyncFn(...args).then(result => {
+      callback(undefined, result);
+    }).catch(err => {
+      callback(err, undefined);
     });
-  }
+  };
 
-}
+  return deasync(callbackFn);
+};
 
-export = AsyncUtil;
+/**
+ * Execute an aysnc function synchronously.
+ */
+export const executeSync = <T, A extends any[]>(asyncFn: AsyncFn<T, A>, ...args: A): T => toSync(asyncFn)(...args);
+
+/**
+ * Resolve a promise synchronously.
+ */
+export const resolveSync = <T>(promise: Promise<T>): T => executeSync(() => promise);
