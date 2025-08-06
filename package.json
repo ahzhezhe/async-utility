@@ -10,15 +10,17 @@
     "promise",
     "deasync"
   ],
-  "files": [
-    "dist/**/*"
-  ],
   "homepage": "https://github.com/ahzhezhe/async-utility#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/ahzhezhe/async-utility"
   },
+  "funding": "https://github.com/sponsors/ahzhezhe",
   "license": "ISC",
+  "files": [
+    ".github/FUNDING.yml",
+    "dist/**/*"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
