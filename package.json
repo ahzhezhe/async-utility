@@ -27,7 +27,8 @@
     "lint": "eslint src/**/*.ts test/**/*.ts",
     "jest": "jest",
     "test": "ts-node test.ts",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "build:watch": "tsc -w -p tsconfig.build.json",
     "prepublishOnly": "rm -rf dist && tsc",
     "postpublish": "rm -rf dist",
     "postversion": "git push"
