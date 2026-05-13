@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "target": "es2021",
-    "module": "commonjs",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "rootDir": "src",
     "outDir": "dist",
+    "isolatedModules": true,
     "declaration": true,
     "esModuleInterop": true,
     "strict": true,
-    "skipLibCheck": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "experimentalDecorators": true,
