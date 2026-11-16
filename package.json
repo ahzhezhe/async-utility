@@ -13,7 +13,7 @@
   "homepage": "https://github.com/ahzhezhe/async-utility#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahzhezhe/async-utility"
+    "url": "git+https://github.com/ahzhezhe/async-utility.git"
   },
   "funding": "https://github.com/sponsors/ahzhezhe",
   "license": "ISC",
